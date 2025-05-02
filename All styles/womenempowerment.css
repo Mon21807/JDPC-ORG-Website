@@ -1,0 +1,298 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Header */
+  header {
+    background: #333;
+    color: white;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+    animation: fadeInDown 1s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-50px); /* Start higher up */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* End at original position */
+    }
+  }
+  
+  /* Navbar */
+  .project-navbar {
+    background: rgba(10, 115, 4, 0.9);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .project-nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .project-nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.6rem;
+    padding: 10px 15px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .project-nav-links a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+  }
+  
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1100;
+  }
+  
+  .hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 2.5px; /* Increased from 5px to 6px to add visible gap */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hamburger.open div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.open div:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Responsive Navigation */
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  
+    #project-nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #0a7304;
+    }
+  
+    #project-nav-links.active {
+      display: flex;
+    }
+  }
+  
+  /* Hero */
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    height: 80vh;
+    padding: 2rem;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('/Jdpc pics/empower.jpg') center center / cover no-repeat;
+    z-index: -1;
+    opacity: 0.9;
+  }
+  
+  .hero-content {
+    position: relative;
+    max-width: 600px;
+    animation: fadeInUp 1.2s ease-out both;
+  }
+  
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 1.3rem;
+  }
+  
+  /* Section Styling */
+  .section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+  }
+  
+  .section-content {
+    display: flex;
+    max-width: 1000px;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .text {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .text h2 {
+    font-size: 1.7rem;
+  }
+  
+  .text p {
+    font-size: 1.4rem;
+  }
+  
+  .image {
+    flex: 1;
+  }
+  
+  .image img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .image img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Reverse Layout */
+  .reverse .section-content {
+    flex-direction: row-reverse;
+  }
+  
+  /* Quote */
+  .quote {
+    margin: 4rem auto;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #555;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  /* CTA */
+  .cta {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #087d0a;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cta:hover {
+    background: #ffcc00;
+    transform: scale(1.1);
+  }
+  
+  /* Footer */
+  footer {
+    background: #222;
+    color: white;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+  }
+  
+  .fade-in {
+    animation: fadeInUp 1.2s ease-out both;
+  }
+  
+  /* Define the fadeInUp animation */
+ 
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px); /* Start below */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* End at original position */
+    }
+  }
+  
+  /* ✅ Responsive Fixes */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+      word-break: break-word;
+      padding: 0 1rem;
+    }
+  
+    .section-content {
+      flex-direction: column !important;
+      text-align: center;
+    }
+  
+    .text {
+      text-align: center;
+    }
+  
+    .text h2 {
+      font-size: 1.6rem;
+    }
+  
+    .text p {
+      font-size: 1.3rem;
+    }
+  
+    .hero h2 {
+      font-size: 2rem;
+    }
+  
+    .hero p {
+      font-size: 1.1rem;
+    }
+  
+    .image img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+    }
+  }

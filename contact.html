@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="All styles/contact.css">
+    <link rel="icon" type="image/png" href="Jdpc pics/logo.png">
+</head>
+<body>
+
+<header>
+    <h1>Contact Us</h1>
+</header>
+
+<nav class="contact-navbar">
+    <div class="hamburger" id="mobile-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <ul class="contact-nav-links" id="contact-nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="projects.html">Thematic Areas</a></li>
+    <li><a href="https://paystack.com/pay/jdpcjosdonation">Donate</a></li>
+</ul>
+</nav>
+
+<div class="content-box">
+    <div class="content-info">
+        <h2>Contact Info</h2>
+
+        <div class="contact-item">
+            <ion-icon name="location"></ion-icon>
+            <p>No 80 Zaria Road, P.O. Box 5262, Jos North, Plateau State, Nigeria</p>
+        </div>
+
+        <div class="contact-item">
+            <ion-icon name="mail"></ion-icon>
+            <a href="mailto:jdpcaritasjs@yahoo.com">jdpcaritasjs@yahoo.com</a>
+        </div>
+
+        <div class="contact-item">
+            <ion-icon name="call"></ion-icon>
+            <a href="tel:+2348163621017">+234-8163 621 017</a>
+        </div>
+        <div class="map-container">
+            <h2>Find Us on the Map</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1739248259715!6m8!1m7!1sv6Q0Tb0nRAkPhN1sTJCXSg!2m2!1d9.942111936313145!2d8.867450799470019!3f77.41066735951371!4f-3.6246127353179105!5f0.7820865974627469"
+            width="320" 
+            height="250" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        </div>
+    </div>
+
+    <div class="content-form">
+        <h2>Get in Touch</h2>
+        <form id="contactForm">
+          <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+          <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+          <input type="email" id="contactEmail" name="contactEmail" placeholder="Your Email" required>
+          <textarea id="contactMessage" name="contactMessage" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<footer>
+    <p>&copy; 2025 Our NGO. All Rights Reserved.</p>
+    <p></p>
+</footer>
+<script src="All Scripts/contact.js"></script>
+
+
+
+<script>
+      document.getElementById("contactForm").onsubmit = async function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const res = await fetch("Mail.php", {
+          method: "POST",
+          body: formData,
+        });
+        const result = await res.text(); // or res.json()
+        alert("Message sent!");
+      };
+    </script>
+
+
+</body>
+</html> 
