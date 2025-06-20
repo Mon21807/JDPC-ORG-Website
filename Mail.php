@@ -1,6 +1,4 @@
 <?php
-
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -9,40 +7,43 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-function SendMail($sender_email, $subject, $message)
+function SendMail($recipient_email, $subject, $message)
 {
     try {
-        $mail = new PHPMailer(true);     
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;  
+        $mail = new PHPMailer(true);
         $mail->isSMTP();
-        $mail->Host       = 'smtp.mail.yahoo.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'jdpcjos1@gmail.com';
-        $mail->Password   = 'tjkpshbncjbkxdji'; // Consider using an environment variable for security
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'jdpcjos1@gmail.com'; // Host: Replace with your Gmail
+        $mail->Password = 'your-app-password'; // Host: Replace with App Password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 465;
-        $mail->setFrom('jdpcjos1@gmail.com', "JDPC");
-        $mail->addAddress($sender_email);
+        $mail->Port = 587;
+
+        $mail->setFrom('jdpcjos1@gmail.com', 'JDPC Contact Form');
+        $mail->addAddress($recipient_email); // Updated to organization's email
+        $mail->addReplyTo($_POST['contactEmail'], $_POST['firstName'] . ' ' . $_POST['lastName']);
+
         $mail->isHTML(true);
         $mail->Subject = $subject;
-        $mail->Body    = $message;
 
-        // Attempt to send the email
+        $emailBody = "<h2>New Contact Form Submission</h2>
+                      <p><strong>First Name:</strong> {$_POST['firstName']}</p>
+                      <p><strong>Last Name:</strong> {$_POST['lastName']}</p>
+                      <p><strong>Email:</strong> {$_POST['contactEmail']}</p>
+                      <p><strong>Message:</strong> {$_POST['contactMessage']}</p>";
+
+        $mail->Body = $emailBody;
+
         $mail->send();
-        return "";
+        return "Message sent successfully!";
     } catch (Exception $e) {
-        return "";
+        return "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
 
-
-// $mail = $_POST['contactEmail'];
-// $msg = $_POST['contactMessage'];
-
-// $data = "<div>Email - $mail</div><div>Message : $msg</div>"
-
-// SendMail('jdpcaritasjs@yahoo.com','JDPC',$data);
-SendMail('newpk09877@gmail.com','JDPC','Test');
-
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $response = SendMail('jdpcjos1@gmail.com', 'New Contact Form Submission', '');
+    echo json_encode(['message' => $response]);
+    exit;
+}
 ?>

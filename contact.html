@@ -21,11 +21,11 @@
     </div>
 
     <ul class="contact-nav-links" id="contact-nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="projects.html">Thematic Areas</a></li>
-    <li><a href="https://paystack.com/pay/jdpcjosdonation">Donate</a></li>
-</ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="projects.html">Thematic Areas</a></li>
+        <li><a href="https://paystack.com/pay/jdpcjosdonation">Donate</a></li>
+    </ul>
 </nav>
 
 <div class="content-box">
@@ -39,7 +39,7 @@
 
         <div class="contact-item">
             <ion-icon name="mail"></ion-icon>
-            <a href="mailto:jdpcaritasjs@yahoo.com">jdpcaritasjs@yahoo.com</a>
+            <a href="mailto:jdpcjos1@gmail.com">jdpcjos1@gmail.com</a>
         </div>
 
         <div class="contact-item">
@@ -55,45 +55,38 @@
             allowfullscreen="" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+            </iframe>
         </div>
     </div>
 
     <div class="content-form">
         <h2>Get in Touch</h2>
-        <form id="contactForm">
-          <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-          <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-          <input type="email" id="contactEmail" name="contactEmail" placeholder="Your Email" required>
-          <textarea id="contactMessage" name="contactMessage" placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
+        <form id="contactForm" action="Mail.php" method="POST">
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+            <input type="email" id="contactEmail" name="contactEmail" placeholder="Your Email" required>
+            <textarea id="contactMessage" name="contactMessage" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
         </form>
-      </div>
+        <div id="responseMessage" class="response-message"></div>
+    </div>
 </div>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <footer>
-    <p>&copy; 2025 Our NGO. All Rights Reserved.</p>
-    <p></p>
+    <div class="footer-container">
+        <div class="foot-img">
+            <img src="/Jdpc pics/Logo.png" alt="Jdpc-Logo">
+        </div>
+        <div class="footer-details">
+            <p>Telephone: +234-8163 621 017</p>
+            <p>Address: No 80 Zaria Road, P.O. Box 5262, Jos North, Plateau State, Nigeria</p>
+            <p><a href="https://www.facebook.com/profile.php?id=100064421813043&mibextid=ZbWKwL" target="_blank">Follow us on Facebook</a></p>
+            <p>© 2025 Our NGO. All Rights Reserved.</p>
+        </div>
+    </div>
 </footer>
 <script src="All Scripts/contact.js"></script>
-
-
-
-<script>
-      document.getElementById("contactForm").onsubmit = async function (e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const res = await fetch("Mail.php", {
-          method: "POST",
-          body: formData,
-        });
-        const result = await res.text(); // or res.json()
-        alert("Message sent!");
-      };
-    </script>
-
-
 </body>
-</html> 
+</html>

@@ -1,5 +1,6 @@
 // Contact Form Submission
 const contactForm = document.getElementById("contactForm");
+const responseMessage = document.getElementById("responseMessage");
 
 if (contactForm) {
   contactForm.addEventListener("submit", async function (e) {
@@ -12,37 +13,39 @@ if (contactForm) {
     const button = contactForm.querySelector("button");
 
     if (!firstName || !lastName || !email || !message) {
-      alert("❗ Please fill in all fields.");
+      responseMessage.innerHTML = '<span style="color: red;">❗ Please fill in all fields.</span>';
       return;
     }
 
     button.innerHTML = '<span class="spinner"></span> Sending...';
-    button.disabled = true; // Disable button while sending
+    button.disabled = true;
 
     const formData = new FormData();
-    formData.append("First Name", firstName);
-    formData.append("Last Name", lastName);
-    formData.append("Email", email);
-    formData.append("Message", message);
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("contactEmail", email);
+    formData.append("contactMessage", message);
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/jdpcaritasjs@yahoo.com", {
+      const response = await fetch("Mail.php", {
         method: "POST",
         body: formData,
       });
 
+      const result = await response.json();
       if (response.ok) {
-        alert("✅ Message Sent Successfully!");
+        responseMessage.innerHTML = '<span style="color: green;">✅ ' + result.message + '</span>';
         contactForm.reset();
       } else {
-        throw new Error("Failed to Send! Please try again.");
+        throw new Error(result.message || "Failed to send. Please try again.");
       }
     } catch (error) {
-      alert("❌ " + error.message);
+      responseMessage.innerHTML = '<span style="color: red;">❌ ' + error.message + '</span>';
     }
 
     button.innerHTML = "Send Message";
-    button.disabled = false; // Re-enable button
+    button.disabled = false;
+    setTimeout(() => (responseMessage.innerHTML = ""), 5000); // Clear message after 5 seconds
   });
 }
 
