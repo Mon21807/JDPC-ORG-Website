@@ -127,7 +127,7 @@ h1 {
 .hero {
   height: 100vh;
   position: relative;
-  background-image: url("/Jdpc pics/governance_bg.jpg");
+  background-image: url("../Jdpc pics/governance_bg.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

@@ -127,7 +127,7 @@ h1 {
 .hero {
   height: 100vh;
   position: relative;
-  background-image: url("/Jdpc pics/EPRT_BG_i.jpg"); /* Replace with your image */
+  background-image: url("../Jdpc pics/EPRT_BG_i.jpg"); /* Replace with your image */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

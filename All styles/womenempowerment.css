@@ -127,7 +127,7 @@ h1 {
 .hero {
   height: 100vh;
   position: relative;
-  background-image: url("/Jdpc pics/women_empowerment-bg.jpg"); /* Replace with appropriate image */
+  background-image: url("../Jdpc pics/women_empowerment-bg.jpg"); /* Replace with appropriate image */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
