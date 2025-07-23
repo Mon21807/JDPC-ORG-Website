@@ -523,3 +523,37 @@ footer {
         width: 12px;
     }
 }
+
+.advertisement-section {
+    padding: 60px 20px;
+    background-color: #fef6f0;
+    border-top: 2px solid #e6a95c;
+    border-bottom: 2px solid #e6a95c;
+}
+
+.advertisement-section .container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.advertisement-section h2 {
+    color: #cc5500;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.advertisement-section h3 {
+    color: #444;
+    margin-top: 25px;
+}
+
+.advertisement-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.advertisement-section p, .advertisement-section li {
+    font-size: 1rem;
+    line-height: 1.6;
+}
