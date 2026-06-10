@@ -557,3 +557,338 @@ footer {
     font-size: 1rem;
     line-height: 1.6;
 }
+
+
+/* ========== RFQ SECTION STYLES ========== */
+.rfq-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7f0 100%);
+    padding: 60px 20px;
+    margin: 40px 0;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.rfq-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.rfq-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #0a7304, #0c8f05);
+    border-radius: 15px;
+    color: white;
+}
+
+.rfq-badge {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.rfq-ref {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.rfq-date {
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
+
+.rfq-intro {
+    background: #fef9e6;
+    padding: 20px 25px;
+    border-radius: 12px;
+    border-left: 5px solid #fdb827;
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.rfq-intro p {
+    margin: 0;
+    color: #333;
+}
+
+.rfq-intro strong {
+    color: #0a7304;
+}
+
+.lot-title {
+    font-size: 1.8rem;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.lot-1 {
+    background: linear-gradient(135deg, #e91e63, #c2185b);
+    color: white;
+}
+
+.lot-2 {
+    background: linear-gradient(135deg, #2196f3, #0d47a1);
+    color: white;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 35px;
+}
+
+.rfq-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.rfq-table thead tr {
+    background: #0a7304;
+    color: white;
+}
+
+.rfq-table th,
+.rfq-table td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.rfq-table th {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.rfq-table td {
+    font-size: 0.95rem;
+}
+
+.rfq-table tbody tr:hover {
+    background: #f5f5f5;
+}
+
+/* Info Grid */
+.rfq-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.rfq-info-card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid #fdb827;
+}
+
+.rfq-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #0a7304;
+    margin-bottom: 8px;
+}
+
+.card-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-value a {
+    color: #0a7304;
+    text-decoration: none;
+}
+
+.card-value a:hover {
+    text-decoration: underline;
+}
+
+/* Countdown Timer */
+.countdown-container {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.countdown-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px 20px;
+    border-radius: 12px;
+    min-width: 80px;
+    backdrop-filter: blur(5px);
+}
+
+.time-number {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.time-label {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+/* Buttons */
+.rfq-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.rfq-btn {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.btn-download {
+    background: #0a7304;
+    color: white;
+    box-shadow: 0 4px 12px rgba(10, 115, 4, 0.3);
+}
+
+.btn-download:hover {
+    background: #0c8f05;
+    transform: scale(1.05);
+}
+
+.btn-copy {
+    background: #fdb827;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(253, 184, 39, 0.3);
+}
+
+.btn-copy:hover {
+    background: #ffcd4a;
+    transform: scale(1.05);
+}
+
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #0a7304;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    z-index: 9999;
+    animation: slideInRight 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Terms Box */
+.rfq-terms {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 30px;
+    border-left: 4px solid #e74c3c;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.rfq-terms h4 {
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.rfq-terms p {
+    margin: 8px 0;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rfq-section {
+        padding: 30px 15px;
+    }
+    
+    .rfq-badge {
+        font-size: 1.3rem;
+    }
+    
+    .lot-title {
+        font-size: 1.3rem;
+    }
+    
+    .time-number {
+        font-size: 1.3rem;
+    }
+    
+    .time-box {
+        padding: 10px 15px;
+        min-width: 60px;
+    }
+    
+    .rfq-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .rfq-table th,
+    .rfq-table td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+}
