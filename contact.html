@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Contact Us - JDPC Jos</title>
     <link rel="stylesheet" href="All styles/contact.css">
-    <link rel="icon" type="image/png" href="Jdpc pics/JDPC LOGO.jpeg">
+    <link rel="icon" type="image/png" href="Jdpc pics/JDPC_LOGO_i.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -39,7 +40,7 @@
 
         <div class="contact-item">
             <ion-icon name="mail"></ion-icon>
-            <a href="mailto:jdpcjos1@gmail.com">jdpcaritasjs@yahoo.com</a>
+            <a href="mailto:jdpcaritasjs@yahoo.com">jdpcaritasjs@yahoo.com</a>
         </div>
 
         <div class="contact-item">
@@ -61,23 +62,25 @@
 
     <div class="content-form">
         <h2>Get in Touch</h2>
-        <form id="contactForm" action="Mail.php" method="POST">
-            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-            <input type="email" id="contactEmail" name="contactEmail" placeholder="Your Email" required>
-            <textarea id="contactMessage" name="contactMessage" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+        <form id="contactForm">
+            <input type="text" id="firstName" name="firstName" placeholder="First Name *" required>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name *" required>
+            <input type="email" id="contactEmail" name="contactEmail" placeholder="Your Email *" required>
+            <input type="text" id="subject" name="subject" placeholder="Subject">
+            <textarea id="contactMessage" name="contactMessage" placeholder="Your Message *" required></textarea>
+            <div id="responseMessage" class="response-message"></div>
+            <button type="submit" id="submitBtn">Send Message</button>
         </form>
-        <div id="responseMessage" class="response-message"></div>
     </div>
 </div>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 <footer>
     <div class="footer-container">
         <div class="foot-img">
-            <img src="/Jdpc pics/JDPC LOGO.jpeg" alt="Jdpc-Logo">
+            <img src="Jdpc pics/JDPC_LOGO_i.png" alt="Jdpc-Logo">
         </div>
         <div class="footer-details">
             <p>Telephone: +234-8163 621 017</p>
@@ -87,6 +90,7 @@
         </div>
     </div>
 </footer>
+
 <script src="All Scripts/contact.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="Jdpc pics/JDPC LOGO.jpeg">
+    <link rel="icon" type="image/png" href="Jdpc pics/JDPC_LOGO_i.png">
     <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="logo"> 
-            <img src="Jdpc pics/JDPC LOGO.jpeg" alt="NGO Logo">
+            <img src="Jdpc pics/JDPC_LOGO_i.png" alt="NGO Logo">
             Welcome to Our Family   
         </div>
     </div>
@@ -76,99 +76,58 @@
         </div>
     </section>
     <hr>
-     <!-- ========== RFQ SECTION (ADD THIS) ========== -->
-    <section class="rfq-section fade-in">
-        <div class="rfq-container">
-            <div class="rfq-header">
-                <div class="rfq-badge">📢 REQUEST FOR QUOTATION (RFQ)</div>
-                <div class="rfq-ref">Reference: JDPC/RFQ/106/2026</div>
-                <div class="rfq-date">📅 Date: 9th June, 2026</div>
-            </div>
+    
+    <!-- ============================================================
+    JOB ADVERTISEMENT SECTION (UPDATED WITH DEADLINE TIMER)
+    ============================================================ -->
+    <section class="jobs-ad-section fade-in">
+        <div class="jobs-ad-container">
 
-            <div class="rfq-intro">
-                <p>We are implementing a humanitarian intervention and request you to submit your quotation for the Supply of <strong>Dignity Kits and WASH Items</strong> for participants in <strong>Bassa and Barkin Ladi LGAs</strong> as detailed below:</p>
-            </div>
-
-            <!-- LOT 1 -->
-            <div class="rfq-lot">
-                <h3 class="lot-title lot-1">📦 LOT 1 – DIGNITY KITS</h3>
-                <div class="table-responsive">
-                    <table class="rfq-table">
-                        <thead>
-                            <tr><th>S/No</th><th>Item</th><th>Description</th><th>Quantity</th><th>Brand</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Sanitary Pad</td><td>30 pieces in one pack</td><td>600</td><td>Soft care</td></tr>
-                            <tr><td>2</td><td>Bath Towel</td><td>Big Size</td><td>300</td><td>Yasmi</td></tr>
-                            <tr><td>3</td><td>Bath Sponge</td><td>Big size - Soft woven Plastic</td><td>300</td><td>Soft woven Plastic</td></tr>
-                        </tbody>
-                    </table>
+            <!-- Ad Header -->
+            <div class="jobs-ad-header">
+                <div class="jobs-ad-badge">📢 WE'RE HIRING!</div>
+                <h2>Join Our Humanitarian Response Team</h2>
+                <p>We are looking for passionate professionals to join our rapid start-up project in Plateau State.</p>
+                <div class="jobs-ad-meta">
+                    <span>📅 12-Month Contract</span>
+                    <span>📍 Plateau State, Nigeria</span>
+                    <span>🏥 Humanitarian Response</span>
+                </div>
+                
+                <!-- ============================================================
+                DEADLINE TIMER - Shows countdown
+                ============================================================ -->
+                <div id="mainDeadlineTimer" style="margin-top:15px; padding:10px 25px; background:rgba(255,255,255,0.2); border-radius:50px; display:inline-block; font-size:1rem; font-weight:600; backdrop-filter:blur(5px);">
+                    ⏰ Loading deadline...
                 </div>
             </div>
 
-            <!-- LOT 2 -->
-            <div class="rfq-lot">
-                <h3 class="lot-title lot-2">🚰 LOT 2 – WASH ITEMS</h3>
-                <div class="table-responsive">
-                    <table class="rfq-table">
-                        <thead>
-                            <tr><th>S/No</th><th>Item</th><th>Description</th><th>Quantity</th><th>Brand</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Water Jerrican</td><td>25 liters Black Jerrican</td><td>1,197</td><td>JP</td></tr>
-                            <tr><td>2</td><td>Toilet Soap</td><td>200g family care by 30 pieces/carton</td><td>240 cartons</td><td>Aspira Family Care</td></tr>
-                            <tr><td>3</td><td>Laundry Soap</td><td>250g laundry Soap by 24 pieces/carton</td><td>300 cartons</td><td>Viva Soap</td></tr>
-                            <tr><td>4</td><td>Water Guard</td><td>180g water guard</td><td>1,197</td><td>Water guard plus</td></tr>
-                            <tr><td>5</td><td>Branded Packaging Bags</td><td>Medium Size</td><td>1,497</td><td>Mamuda</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- Jobs Grid - ALL 15 positions will be shown -->
+            <div class="jobs-ad-grid" id="jobsAdGrid">
+                <!-- Jobs injected here by JavaScript -->
             </div>
 
-            <!-- Info Cards -->
-            <div class="rfq-info-grid">
-                <div class="rfq-info-card">
-                    <div class="card-icon">📧</div>
-                    <div class="card-title">Send Quotation To</div>
-                    <div class="card-value"><a href="mailto:jdpcaritasjs@yahoo.com">jdpcaritasjs@yahoo.com</a></div>
-                </div>
-                <div class="rfq-info-card">
-                    <div class="card-icon">📞</div>
-                    <div class="card-title">For Inquiries</div>
-                    <div class="card-value">08063917043 &nbsp;|&nbsp; 08033725848</div>
-                </div>
-                <div class="rfq-info-card">
-                    <div class="card-icon">📅</div>
-                    <div class="card-title">Submission Deadline</div>
-                    <div class="card-value">13th June 2026 – 5PM</div>
-                </div>
+            <!-- Footer -->
+            <div class="jobs-ad-footer">
+                <p class="jobs-ad-deadline">⏰ Application Deadline: <strong>2nd July 2026, 4:00 PM</strong></p>
+                <p style="font-size:0.85rem; color:#888; margin-top:8px;">
+                    📧 Send applications to: <strong style="color:#0a7304;">jdpcaritasjs@yahoo.com</strong>
+                </p>
             </div>
 
-            <!-- Countdown Timer -->
-            <div class="countdown-container">
-                <div class="countdown-title">⏰ Time Remaining to Submit Quotation</div>
-                <div class="countdown" id="countdown">
-                    <div class="time-box"><div class="time-number" id="days">00</div><div class="time-label">Days</div></div>
-                    <div class="time-box"><div class="time-number" id="hours">00</div><div class="time-label">Hours</div></div>
-                    <div class="time-box"><div class="time-number" id="minutes">00</div><div class="time-label">Minutes</div></div>
-                    <div class="time-box"><div class="time-number" id="seconds">00</div><div class="time-label">Seconds</div></div>
-                </div>
-            </div>
-
-            <!-- Buttons -->
-            <div class="rfq-buttons">
-                <a href="Pdf/RFQ_JDPC_106_2026.pdf" class="rfq-btn btn-download" id="downloadBtn">📄 Download Full RFQ (PDF)</a>
-                <button class="rfq-btn btn-copy" id="copyEmailBtn">📋 Copy Email Address</button>
-            </div>
-
-            <!-- Terms -->
-            <div class="rfq-terms">
-                <h4>⚠️ Important Notice</h4>
-                <p>This bidding exercise will result in entering into a <strong>Long Term Agreement</strong> with the selected vendor for a period of <strong>one year</strong>, with possibility of extension for an additional year based on satisfactory performance.</p>
-                <p>JDPC reserves the right to vary quantity by up to <strong>25%</strong> without change in unit price. JDPC is not bound to accept any quotation. No price variation due to escalation, inflation, or exchange rate fluctuation shall be accepted.</p>
-            </div>
         </div>
     </section>
+
+    <!-- Job Detail Modal with Application Form -->
+    <div class="jobs-ad-modal-overlay" id="jobsAdModal" onclick="closeJobAdModalOutside(event)">
+        <div class="jobs-ad-modal-content">
+            <button class="jobs-ad-modal-close" onclick="closeJobAdModal()">✕</button>
+            <div id="jobsAdModalBody">
+                <!-- Job detail injected here -->
+            </div>
+        </div>
+    </div>
+    
     <hr>
  <!-- Humanitarian Impact Section with Slideshow -->
     <section class="humanitarian-impact fade-in">
@@ -226,7 +185,7 @@
     <footer>
         <div class="footer-container">
             <div class="foot-img">
-                <img src="Jdpc pics/JDPC LOGO.jpeg" alt="Jdpc-Logo">
+                <img src="Jdpc pics/JDPC_LOGO_i.png" alt="Jdpc-Logo">
             </div>
             <div class="footer-details">
                 <p>Telephone: +234-8163 621 017</p>
