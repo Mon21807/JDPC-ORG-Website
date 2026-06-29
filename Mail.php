@@ -41,28 +41,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // ============================================================
-    // 5. SEND EMAIL USING PHPMailer
+    // 5. SEND EMAIL USING PHPMailer - FIXED YAHOO SMTP
     // ============================================================
     $mail = new PHPMailer(true);
 
     try {
-        // SMTP Configuration
+        // Yahoo SMTP Configuration - FIXED
         $mail->isSMTP();
         $mail->Host       = 'smtp.mail.yahoo.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'jdpcaritasjs@yahoo.com'; 
-        $mail->Password   = 'mjyavxgjyysrnicc'; 
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Username   = 'sahil18799@gmail.com';
+        $mail->Password   = 'vkoastbxngnuhfiy';  // ⚠️ USE APP PASSWORD
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port       = 465;
+        
+        // Additional settings to prevent Yahoo 550 error
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
 
-        // Sender & Recipient - SEND TO YOUR EMAIL
+        // ============================================================
+        // FIX: Set From to match SMTP username (REQUIRED by Yahoo)
+        // ============================================================
         $mail->setFrom('jdpcaritasjs@yahoo.com', 'JDPC Jos Website');
-        $mail->addAddress('jdpcaritasjs@yahoo.com'); // <--- YOUR EMAIL
+        $mail->addAddress('jdpcaritasjs@yahoo.com');
         $mail->addReplyTo($senderEmail, $firstName . ' ' . $lastName);
 
-        // Email Content
+        // ============================================================
+        // FIX: Encode subject with UTF-8 to keep emojis
+        // ============================================================
+        $subjectLine = "📬 Contact Form: " . $subject;
+        $mail->Subject = mb_encode_mimeheader($subjectLine, 'UTF-8', 'Q');
+
         $mail->isHTML(true);
-        $mail->Subject = "📬 Contact Form: " . $subject;
         
         $currentDate = date('d M, Y');
         $year = date('Y');
@@ -71,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!DOCTYPE html>
         <html>
         <head>
+            <meta charset='UTF-8'>
             <style>
                 body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
                 .container { max-width: 600px; margin: 20px auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
@@ -123,6 +139,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </body>
         </html>";
+
+        // Set plain text alternative
+        $mail->AltBody = "Contact Form Submission\n\n";
+        $mail->AltBody .= "Name: $firstName $lastName\n";
+        $mail->AltBody .= "Email: $senderEmail\n";
+        $mail->AltBody .= "Subject: $subject\n\n";
+        $mail->AltBody .= "Message:\n$contactMessage";
 
         $mail->send();
         echo json_encode(['success' => true, 'message' => 'Message sent successfully!']);

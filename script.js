@@ -78,61 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ============================================================
-//  RFQ FUNCTIONS
-// ============================================================
-
-function startCountdown() {
-    const deadline = new Date(2026, 5, 13, 17, 0, 0);
-    function updateCountdown() {
-        const now = new Date();
-        const diff = deadline - now;
-        if (diff <= 0) {
-            const els = ['days', 'hours', 'minutes', 'seconds'];
-            els.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.innerHTML = '00';
-            });
-            return;
-        }
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        const d = document.getElementById('days');
-        const h = document.getElementById('hours');
-        const m = document.getElementById('minutes');
-        const s = document.getElementById('seconds');
-        if (d) d.innerHTML = days.toString().padStart(2, '0');
-        if (h) h.innerHTML = hours.toString().padStart(2, '0');
-        if (m) m.innerHTML = minutes.toString().padStart(2, '0');
-        if (s) s.innerHTML = seconds.toString().padStart(2, '0');
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-}
-
-function setupCopyEmail() {
-    const copyBtn = document.getElementById('copyEmailBtn');
-    if (copyBtn) {
-        copyBtn.addEventListener('click', function() {
-            const email = 'jdpcaritasjs@yahoo.com';
-            navigator.clipboard.writeText(email).then(function() {
-                const toast = document.createElement('div');
-                toast.className = 'toast-notification';
-                toast.innerHTML = '✅ Copied! ' + email;
-                document.body.appendChild(toast);
-                setTimeout(function() { toast.remove(); }, 2000);
-            });
-        });
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    startCountdown();
-    setupCopyEmail();
-});
-
-// ============================================================
 //  JOB DEADLINE SYSTEM
 // ============================================================
 
@@ -771,7 +716,7 @@ function renderJobAdCards() {
 }
 
 // ============================================================
-//  JOB MODAL WITH APPLICATION FORM & DEADLINE CHECK
+//  JOB MODAL - EMAIL ONLY (NO FORM)
 // ============================================================
 
 function openJobAdModal(jobId) {
@@ -877,57 +822,36 @@ function openJobAdModal(jobId) {
                 </ul>
             </div>
 
+            <!-- ============================================================
+            APPLY SECTION - EMAIL ONLY (NO FORM)
+            ============================================================ -->
             <div class="apply-section">
-                <h3>📧 Apply for ${job.title}</h3>
-                <p style="font-size:0.9rem; color:#555; text-align:center; margin-bottom:15px;">
-                    Fill in the form below and upload your documents.
+                <h3>📧 How to Apply</h3>
+                <p style="font-size:0.95rem; color:#555; text-align:center; margin-bottom:10px;">
+                    Submit your <strong>CV and cover letter</strong> to:
                 </p>
-
-                <form id="jobApplicationForm" enctype="multipart/form-data">
-                    <input type="hidden" name="job_id" value="${job.id}">
-                    <input type="hidden" name="job_title" value="${job.title}">
-
-                    <div class="form-group">
-                        <label>Full Name *</label>
-                        <input type="text" name="full_name" required placeholder="e.g., John Doe">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email Address *</label>
-                        <input type="email" name="email" required placeholder="e.g., john@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" name="phone" placeholder="e.g., 08012345678">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Cover Letter / Message</label>
-                        <textarea name="cover_letter" rows="4" placeholder="Tell us why you're the right candidate...">I am applying for the position of ${job.title} (Position ${job.id}).</textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Upload CV (PDF, DOC, DOCX) *</label>
-                        <input type="file" name="cv" accept=".pdf,.doc,.docx" required>
-                        <div class="file-hint">Accepted: PDF, DOC, DOCX (Max 5MB)</div>
-                    </div>
-
-        
-
-                    <div id="jobFormResponse" style="margin-bottom:12px; display:none;"></div>
-
-                    <button type="submit" class="btn-submit" id="jobSubmitBtn">📤 Submit Application</button>
-
-                    <p style="font-size:0.8rem; color:#999; margin-top:10px; text-align:center;">
+                
+                <p class="email" style="font-size:1.3rem; font-weight:600; color:#e94560; margin:10px 0;">
+                    jdpcaritasjs@yahoo.com
+                </p>
+                
+                <p class="deadline" style="color:#888; font-size:0.9rem;">
+                    📅 Deadline: <strong>2nd July 2026, 4:00 PM</strong>
+                </p>
+                
+                <p style="font-size:0.85rem; color:#999; margin:8px 0 12px;">
+                    Please mention <strong>Position ${job.id} — ${job.title}</strong> in the subject line.
+                </p>
+                
+                <a href="mailto:jdpcaritasjs@yahoo.com?subject=Application%20for%20${encodeURIComponent(job.id + ' - ' + job.title)}&body=Dear%20Hiring%20Team%2C%0D%0A%0D%0AI%20am%20applying%20for%20the%20position%20of%20${encodeURIComponent(job.title)}%20(Position%20${job.id}).%0D%0A%0D%0APlease%20find%20attached%20my%20CV%20and%20cover%20letter.%0D%0A%0D%0AThank%20you%20for%20considering%20my%20application.%0D%0A%0D%0ABest%20regards%2C%0D%0A[Your%20Full%20Name]" 
+                   class="job-btn-apply-large" target="_blank">
+                    📩 Apply Now via Email
+                </a>
+                
+                <div style="margin-top:15px; padding-top:15px; border-top:1px solid #e0e0e0;">
+                    <p style="font-size:0.8rem; color:#999;">
                         ⏰ Deadline: <strong style="color:#e94560;">2nd July 2026, 4:00 PM</strong>
                     </p>
-                </form>
-
-                <div style="margin-top:15px; padding-top:15px; border-top:1px solid #e0e0e0; text-align:center;">
-                    <p style="font-size:0.85rem; color:#888;">Or apply via email:</p>
-                    <a href="mailto:jdpcaritasjs@yahoo.com?subject=Application%20for%20${encodeURIComponent(job.id + ' - ' + job.title)}&body=Dear%20Hiring%20Team%2C%0D%0A%0D%0AI%20am%20applying%20for%20the%20position%20of%20${encodeURIComponent(job.title)}%20(Position%20${job.id}).%0D%0A%0D%0APlease%20find%20attached%20my%20CV%2C%20cover%20letter%2C%20and%201-page%20proposal.%0D%0A%0D%0AThank%20you%20for%20considering%20my%20application.%0D%0A%0D%0ABest%20regards%2C%0D%0A[Your%20Full%20Name]" 
-                       class="job-btn-apply-large" target="_blank">📩 Apply via Email</a>
                 </div>
             </div>
         </div>
@@ -935,79 +859,6 @@ function openJobAdModal(jobId) {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-
-    // AJAX Form Submission
-    const form = document.getElementById('jobApplicationForm');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Double-check deadline
-            if (isJobDeadlinePassed()) {
-                const responseDiv = document.getElementById('jobFormResponse');
-                responseDiv.style.display = 'block';
-                responseDiv.innerHTML = `
-                    <div class="job-form-error">
-                        ❌ Applications are now closed. This submission will not be accepted.
-                    </div>
-                `;
-                return;
-            }
-
-            const submitBtn = document.getElementById('jobSubmitBtn');
-            const responseDiv = document.getElementById('jobFormResponse');
-
-            submitBtn.textContent = '⏳ Submitting...';
-            submitBtn.disabled = true;
-            responseDiv.style.display = 'none';
-
-            const formData = new FormData(this);
-
-            fetch('submit-job-application.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                responseDiv.style.display = 'block';
-                if (data.success) {
-                    responseDiv.innerHTML = `
-                        <div class="job-form-success">
-                            ✅ ${data.message}
-                        </div>
-                    `;
-                    form.reset();
-                    submitBtn.textContent = '✅ Submitted!';
-                    submitBtn.style.background = '#28a745';
-                    
-                    setTimeout(() => {
-                        closeJobAdModal();
-                        submitBtn.textContent = '📤 Submit Application';
-                        submitBtn.style.background = '#e94560';
-                        submitBtn.disabled = false;
-                    }, 3000);
-                } else {
-                    responseDiv.innerHTML = `
-                        <div class="job-form-error">
-                            ❌ ${data.message}
-                        </div>
-                    `;
-                    submitBtn.textContent = '📤 Submit Application';
-                    submitBtn.disabled = false;
-                }
-            })
-            .catch(error => {
-                responseDiv.style.display = 'block';
-                responseDiv.innerHTML = `
-                    <div class="job-form-error">
-                        ❌ Network error. Please try again.
-                    </div>
-                `;
-                submitBtn.textContent = '📤 Submit Application';
-                submitBtn.disabled = false;
-            });
-        });
-    }
 }
 
 function closeJobAdModal() {

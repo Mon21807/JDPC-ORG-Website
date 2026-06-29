@@ -1210,3 +1210,86 @@ footer {
     border: 1px solid #f5c6cb;
     margin-bottom: 12px;
 }
+
+/* ============================================================
+   APPLY SECTION STYLES
+   ============================================================ */
+
+.apply-section {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 25px;
+    border: 2px dashed #0a7304;
+}
+
+.apply-section h3 {
+    color: #0a7304;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.apply-section .email {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #e94560;
+    text-align: center;
+}
+
+.apply-section .deadline {
+    color: #888;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.job-btn-apply-large {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 14px 45px;
+    background: #e94560;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.job-btn-apply-large:hover {
+    background: #c73652;
+}
+
+/* ============================================================
+   DEADLINE & CLOSED STATES
+   ============================================================ */
+
+.job-btn-closed {
+    background: #ccc !important;
+    color: #666 !important;
+    cursor: not-allowed !important;
+    border: none !important;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.job-deadline-timer {
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.job-deadline-timer.expired {
+    color: #e94560 !important;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
