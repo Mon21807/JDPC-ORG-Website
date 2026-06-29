@@ -913,11 +913,7 @@ function openJobAdModal(jobId) {
                         <div class="file-hint">Accepted: PDF, DOC, DOCX (Max 5MB)</div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Upload 1-Page Proposal (PDF, DOC, DOCX) *</label>
-                        <input type="file" name="proposal" accept=".pdf,.doc,.docx" required>
-                        <div class="file-hint">Accepted: PDF, DOC, DOCX (Max 5MB)</div>
-                    </div>
+        
 
                     <div id="jobFormResponse" style="margin-bottom:12px; display:none;"></div>
 

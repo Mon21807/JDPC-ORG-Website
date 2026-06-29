@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         // SMTP Configuration
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
+        $mail->Host       = 'smtp.mail.yahoo.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'jdpcaritasjs@yahoo.com'; 
         $mail->Password   = 'mjyavxgjyysrnicc'; 

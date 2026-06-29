@@ -82,11 +82,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Upload Proposal
-    $proposal_result = upload_job_file($_FILES['proposal'], $upload_dir, 'Proposal_' . $full_name);
-    if (isset($proposal_result['error'])) {
-        echo json_encode(['success' => false, 'message' => 'Proposal Error: ' . $proposal_result['error']]);
-        exit;
-    }
+    // $proposal_result = upload_job_file($_FILES['proposal'], $upload_dir, 'Proposal_' . $full_name);
+    // if (isset($proposal_result['error'])) {
+    //     echo json_encode(['success' => false, 'message' => 'Proposal Error: ' . $proposal_result['error']]);
+    //     exit;
+    // }
 
     // ============================================================
     // 5. SEND EMAIL USING PHPMailer
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
+        $mail->Host       = 'smtp.mail.yahoo.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'jdpcaritasjs@yahoo.com'; 
         $mail->Password   = 'mjyavxgjyysrnicc'; 
@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class='attachments'>
                         <h3>📎 Attached Files</h3>
                         <p><strong>CV:</strong> " . htmlspecialchars($cv_result['name']) . "</p>
-                        <p><strong>Proposal:</strong> " . htmlspecialchars($proposal_result['name']) . "</p>
+                    
                     </div>
 
                     <div class='btn-wrap'>
@@ -183,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Attach files
         $mail->addAttachment($cv_result['path'], $cv_result['name']);
-        $mail->addAttachment($proposal_result['path'], $proposal_result['name']);
+        // $mail->addAttachment($proposal_result['path'], $proposal_result['name']);
 
         $mail->send();
         echo json_encode(['success' => true, 'message' => 'Application submitted successfully!']);
